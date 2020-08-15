@@ -1,0 +1,20 @@
+{
+  "name": "stock-take",
+  "version": "0.0.0",
+  "description": "A first propper attempt at typescript",
+  "main": "index.ts",
+  "scripts": {
+    "start": "ts-node index.ts",
+    "test": "ts-node node_modules/tape/bin/tape tests/**/*.ts"
+  },
+  "author": "Michael Van Der Velden",
+  "license": "MIT",
+  "devDependencies": {
+    "sinon": "^9.0.3",
+    "tape": "^5.0.1"
+  },
+  "dependencies": {
+    "typescript": "^3.9.7",
+    "ts-node": "^8.10.2"
+  }
+}

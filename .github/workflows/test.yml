@@ -1,0 +1,23 @@
+name: Test Codebase
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  test-codebase:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+        with:
+          persist-credentials: false
+
+      - name: Installing Dependencies
+        run: |
+          npm install
+
+      - name: Run Test Suite
+        run: |
+          npm run test
