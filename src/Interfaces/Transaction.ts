@@ -2,8 +2,8 @@
  * An enum to of allowed transaction types
  */
 export enum TransactionType {
-  order = "order",
-  refund = "refund"
+  order = 'order',
+  refund = 'refund'
 }
 
 /**
