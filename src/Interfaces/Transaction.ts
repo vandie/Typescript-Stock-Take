@@ -11,6 +11,6 @@ export enum TransactionType {
  */
 export default interface Transaction {
   sku: String,
-  qty: Number,
+  qty: number,
   type: TransactionType
 }
