@@ -1,6 +1,8 @@
 import sinon from 'sinon';
 import test, { Test } from 'tape';
 import * as testFile from '../src/lib/Transactions/list';
+import { assert } from 'console';
+import Transaction, {TransactionType} from '../src/Interfaces/Transaction';
 
 test('Transaction - fetch list works as expected', async (assert:Test) => {
   assert.plan(2);
@@ -79,4 +81,36 @@ test('Transaction - fetch list works as expected', async (assert:Test) => {
 
   readFileStub.restore();
   assert.end();
+});
+
+test("listTransactionsBySku works as expected", async (assert: Test) => {
+  assert.plan(2);
+  const readFileStub = sinon.stub(testFile, 'asyncReadFile')
+    .returns(
+      Promise.resolve('[{"sku":"KED089097/68/09","type":"order","qty":8},{"sku":"DOK019240/66/49","type":"order","qty":4},{"sku":"XOE089797/10/74","type":"refund","qty":5},{"sku":"KGD740425/40/48","type":"order","qty":6},{"sku":"YGH750695/17/53","type":"order","qty":9},{"sku":"TZH873296/06/42","type":"order","qty":0}]'),
+    );
+
+  const listTransactionsBySku = testFile.listTransactionsBySku;
+
+  assert.deepEqual(
+    await listTransactionsBySku('XOE089797/10/74'),
+    [{
+      sku: 'XOE089797/10/74',
+      type: 'refund',
+      qty: 5
+    }],
+    "listTransactionsBySku filters correctly (test 1)"
+  );
+
+  assert.deepEqual(
+    await listTransactionsBySku('KGD740425/40/48'),
+    [{
+      sku: 'KGD740425/40/48',
+      type: 'order',
+      qty: 6
+    }],
+    "listTransactionsBySku filters correctly (test 2)"
+  );
+
+  readFileStub.restore();
 });
