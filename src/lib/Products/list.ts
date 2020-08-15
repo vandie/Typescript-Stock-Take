@@ -11,7 +11,7 @@ export const asyncReadFile = util.promisify(fs.readFile);
 const productsFilePath = Path.join(__dirname, '../../../data/stock.json');
 
 /**
- *
+ * List all products
  */
 export default async function listProducts():Promise<Array<Product>> {
   // I could require this json file but I figure that reading the file
