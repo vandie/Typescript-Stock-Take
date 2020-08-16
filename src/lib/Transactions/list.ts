@@ -34,5 +34,7 @@ export default async function listTransactions():Promise<Array<Transaction>> {
  */
 export async function listTransactionsBySku(sku:String):Promise<Array<Transaction>> {
   const allTransactions = await listTransactions();
-  return allTransactions.filter((transaction) => transaction.sku === sku);
+  const filteredTransactions = allTransactions.filter((transaction) => transaction.sku === sku);
+  console.log(`Filtered transactions to ${filteredTransactions.length} relevent transations`);
+  return filteredTransactions;
 }

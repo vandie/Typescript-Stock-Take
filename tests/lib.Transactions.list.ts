@@ -43,32 +43,32 @@ test('Transaction - fetch list works as expected', async (assert:Test) => {
   const expectedTransactionList = [
     {
       sku: 'KED089097/68/09',
-      type: 'order',
+      type: TransactionType.order,
       qty: 8
     },
     {
       sku: 'DOK019240/66/49',
-      type: 'order',
+      type: TransactionType.order,
       qty: 4
     },
     {
       sku: 'XOE089797/10/74',
-      type: 'refund',
+      type: TransactionType.refund,
       qty: 5
     },
     {
       sku: 'KGD740425/40/48',
-      type: 'order',
+      type: TransactionType.order,
       qty: 6
     },
     {
       sku: 'YGH750695/17/53',
-      type: 'order',
+      type: TransactionType.order,
       qty: 9
     },
     {
       sku: 'TZH873296/06/42',
-      type: 'order',
+      type: TransactionType.order,
       qty: 0
     }
   ];
