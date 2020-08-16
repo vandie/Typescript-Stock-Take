@@ -2,7 +2,7 @@ import Product from '../../Interfaces/Product';
 import listProducts from './list';
 
 /**
- *
+ * Fetch a product
  * @param sku A product SKU code
  */
 export default async function getProduct(sku:String): Promise<Product> {
